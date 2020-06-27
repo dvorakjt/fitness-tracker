@@ -4,7 +4,7 @@ fetch("/api/workouts/range")
     return response.json();
   })
   .then(data => {
-    // console.log(data);
+    console.log(data);
     const condensed = condenseWorkouts(data);
     populateChart(condensed);
   });
@@ -38,6 +38,19 @@ function condenseWorkouts(array) {
       }
     }
   });
+  //figure out if the first day is sunday
+  let firstDay = array[0].day;
+  firstDay = moment(firstDay).weekday();
+
+  //if the firstday is not sunday, add empty elements to the array to account for the difference
+  if (firstDay > 0) {
+    for (let i = 0; i < firstDay; i++) {
+      array.unshift({
+        exercises: [],
+        totalDuration: 0
+      });
+    }
+  }
   return array;
 }
 API.getWorkoutsInRange()

@@ -44,7 +44,7 @@ module.exports = function (app) {
     app.get("/api/workouts/range", function (req, res) {
         //use moment to find last sunday, the query for dates greater than that
         //first get today
-        let today = moment().day() + 1; //returns a number from 0 to 6
+        let today = moment().day(); //returns a number from 0 to 6
         //now subtract that number from today's date to find last sunday
         const startDay = new Date(moment().subtract(today, 'd').startOf('day').toISOString());
         //greater than or equal to startdate
