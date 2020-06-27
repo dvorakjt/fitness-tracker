@@ -59,7 +59,7 @@ The returned workouts are contained in the .ops property of the data object that
 All exercise documents in the collection are then deleted, and a seedsComplete variable is declared. This variable keeps track of how many workout documents have been updated with an ID from an exercise document and is necessary because of the asynchronous nature of the code.
 
 My code next uses a forEach() loop to iterate through each of the objects in the exerciseSeed array. For each object, a new exercise document is created, and then the a corresponding workout is updated via the code:  <code>db.Workout.findByIdAndUpdate(workouts[index]["_id"], { $push: { exercises:  _id } }, { new:  true })</code>.
-Once this update is complete, the seedsComplete variable is incrememented. If seedsComplete reaches the length of the seedArray, the process is terminated. This prevents the process from terminating before all records have been inserted (I had previously used index to determine when the process was to end, and found that the loop was executing faster than the asynchronous code, causing the process to terminate early and resulting in an incomplete data set).
+Once this update is complete, the seedsComplete variable is incremented. If seedsComplete reaches the length of the seedArray, the process is terminated. This prevents the process from terminating before all records have been inserted (I had previously used index to determine when the process was to end, and found that the loop was executing faster than the asynchronous code, causing the process to terminate early and resulting in an incomplete data set).
 
 This is the code for this entire process:
 
