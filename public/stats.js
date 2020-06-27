@@ -1,15 +1,45 @@
 // get all workout data from back-end
-
 fetch("/api/workouts/range")
   .then(response => {
     return response.json();
   })
   .then(data => {
-    console.log(data);
-    populateChart(data);
+    // console.log(data);
+    const condensed = condenseWorkouts(data);
+    populateChart(condensed);
   });
 
+// condense each day's workouts into one for display purposes
+function condenseWorkouts(array) {
+  array.forEach((workout, index) => {
+    const workoutDay = moment(workout.day).startOf('day').format();
+    //go through the array beginning after the current element and check for any days with multiple workouts
+    for (let i = index + 1; i < array.length; i++) {
+      const workout2 = array[i];
+      const workoutDay2 = moment(workout2.day).startOf('day').format();
+      //check to see if the days match
+      if (workoutDay === workoutDay2) {
+        //if they match, add the data from the record that matches to the first record, delete the second record, and finally
+        //subtract 1 from i so that iteration resumes correctly
 
+        //first, concat the exercises array
+        workout.exercises = workout.exercises.concat(workout2.exercises);
+
+        //next, add the total durations
+        workout.totalDuration += workout2.totalDuration;
+
+        console.log(workout);
+
+        //splice the array to remove the duplicate date
+        array.splice(i, 1);
+
+        //subtract 1 from i so that iteration resumes correctly
+        i--
+      }
+    }
+  });
+  return array;
+}
 API.getWorkoutsInRange()
 
 function generatePalette() {
@@ -36,11 +66,8 @@ function generatePalette() {
 }
 function populateChart(data) {
   let durations = duration(data);
-  console.log(durations);
   let pounds = calculateTotalWeight(data);
-  console.log(pounds);
   let workouts = workoutNames(data);
-  console.log(workouts);
   const colors = generatePalette();
 
   let line = document.querySelector("#canvas").getContext("2d");
@@ -194,9 +221,9 @@ function duration(data) {
   let durations = [];
 
   data.forEach(workout => {
-    workout.exercises.forEach(exercise => {
-      durations.push(exercise.duration);
-    });
+    // workout.exercises.forEach(exercise => {
+    durations.push(workout.totalDuration);
+    // });
   });
 
   return durations;

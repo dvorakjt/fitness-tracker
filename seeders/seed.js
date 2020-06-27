@@ -9,43 +9,43 @@ mongoose.connect("mongodb://localhost/workout", {
 let workoutSeed = [
   {
     day: new Date().setDate(new Date().getDate() - 10),
-    totalDuration: 0
+    totalDuration: 40
   },
   {
     day: new Date().setDate(new Date().getDate() - 9),
-    totalDuration: 0
+    totalDuration: 10
   },
   {
     day: new Date().setDate(new Date().getDate() - 8),
-    totalDuration: 0
+    totalDuration: 40
   },
   {
     day: new Date().setDate(new Date().getDate() - 7),
-    totalDuration: 0
+    totalDuration: 10
   },
   {
     day: new Date().setDate(new Date().getDate() - 6),
-    totalDuration: 0
+    totalDuration: 40
   },
   {
     day: new Date().setDate(new Date().getDate() - 5),
-    totalDuration: 0
+    totalDuration: 10
   },
   {
     day: new Date().setDate(new Date().getDate() - 4),
-    totalDuration: 0
+    totalDuration: 40
   },
   {
     day: new Date().setDate(new Date().getDate() - 3),
-    totalDuration: 0
+    totalDuration: 10
   },
   {
     day: new Date().setDate(new Date().getDate() - 2),
-    totalDuration: 0
+    totalDuration: 40
   },
   {
     day: new Date().setDate(new Date().getDate() - 1),
-    totalDuration: 0
+    totalDuration: 40
   }
 ];
 
