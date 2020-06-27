@@ -18,11 +18,11 @@ require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
 //connect to mongoose
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
 
 //Delete records from the db then start the server.
-db.Workout.deleteMany({}).then(result => {
-    app.listen(PORT, function () {
-        console.log("App listening on PORT " + PORT);
-    })
+// db.Workout.deleteMany({}).then(result => {
+app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
 })
+// })
