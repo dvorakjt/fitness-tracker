@@ -230,9 +230,6 @@ Frontend code and original seed file provided by Trilogy education.
 
 Joe Dvorak
 
-![your github profile pic](https://avatars3.githubusercontent.com/u/61166366?v=4
-Github: dvorakjt
-
 Github repository: [github.com/dvorakjt](https://github.com/dvorakjt/)
 
 Portfolio: [dvorakjt.github.io/](https://userName.github.io/)  
