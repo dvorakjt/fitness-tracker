@@ -5,8 +5,8 @@ This project allows the user to keep track of all of their workouts, and the exe
 
 [Introduction](#introduction)  
 [Installation](#installation)  
-[Dependencies](#dependencies)
-[The Code](#the-code)
+[Dependencies](#dependencies)  
+[The Code](#the-code)  
 [Usage](#usage)  
 [Contributing](#contributing)  
 [About the Author](#about-the-author)  
