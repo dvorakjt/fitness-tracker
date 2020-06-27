@@ -1,5 +1,3 @@
-# fitness-tracker
-This repo contains code for a fitness tracker app.
 # Fitness Tracker
 ![Screenshot of app](./assets/screenshots/screen-1.png)
 This project allows the user to keep track of all of their workouts, and the exercises therein by adding workouts, adding exercises, and continuing workouts. This was an assignment in the Penn LPS Coding Bootcamp, and therefore the frontend code was provided to us. Our task was to integrate with a server and use Mongoose to establish a MongoDB database. Please view the deployed app [here.](https://young-reef-05272.herokuapp.com/)
